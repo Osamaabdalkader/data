@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة المستخدمين</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div class="user-bar">
+        مرحباً، <span id="displayName"></span>
+        <button id="logoutBtn" class="btn-logout">تسجيل الخروج</button>
+    </div>
+    
+    <div class="container">
+        <h1>إدارة المستخدمين</h1>
+        
+        <button id="addUserBtn" class="btn-submit">إضافة مستخدم جديد</button>
+        
+        <div class="data-table-container">
+            <table id="usersTable">
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>الكود</th>
+                        <th>الصلاحية</th>
+                        <th>تاريخ الإنشاء</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="usersBody">
+                    <!-- بيانات المستخدمين ستظهر هنا -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="activity-log">
+            <h2>سجل الأنشطة</h2>
+            <div class="log-container" id="activityLog"></div>
+        </div>
+        
+        <div class="back-section">
+            <a href="index.html" class="btn-back">العودة للصفحة الرئيسية</a>
+        </div>
+    </div>
+    
+    <script src="admin.js"></script>
+    <script>
+        // التحقق من تسجيل الدخول
+        protectPage('admin');
+        
+        // عرض معلومات المستخدم
+        document.getElementById('displayName').textContent = localStorage.getItem('userName') || 'مستخدم';
+        
+        // تسجيل الخروج
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+    </script>
+</body>
+</html>
