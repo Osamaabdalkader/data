@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <div class="container">
+        <h1>نموذج إدخال البيانات</h1>
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="name">الاسم الكامل:</label>
+                <input type="text" id="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">البريد الإلكتروني:</label>
+                <input type="email" id="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone">
+            </div>
+            
+            <div class="form-group">
+                <label for="city">المدينة:</label>
+                <select id="city" required>
+                    <option value="">اختر المدينة</option>
+                    <option value="الرياض">الرياض</option>
+                    <option value="جدة">جدة</option>
+                    <option value="مكة">مكة</option>
+                    <option value="الدمام">الدمام</option>
+                    <option value="المدينة">المدينة المنورة</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label>الجنس:</label>
+                <div class="radio-group">
+                    <label>
+                        <input type="radio" name="gender" value="ذكر" required> ذكر
+                    </label>
+                    <label>
+                        <input type="radio" name="gender" value="أنثى"> أنثى
+                    </label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="notes">ملاحظات:</label>
+                <textarea id="notes" rows="3"></textarea>
+            </div>
+            
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">حفظ البيانات</button>
+                <a href="query.html" class="btn-query">صفحة الاستعلام</a>
+            </div>
+        </form>
+        
+        <div id="message"></div>
+    </div>
+    
+    <script src="entry.js"></script>
+    <script>
+</head>
+<body>
+    <div class="user-bar">
+        مرحباً، <span id="displayName"></span>
+        <button id="logoutBtn" class="btn-logout">تسجيل الخروج</button>
+    </div>
+    
+    <div class="container">
+        <h1>استعلام البيانات</h1>
+        
+        <div class="search-section">
+            <input type="text" id="searchInput" placeholder="ابحث بالاسم أو البريد الإلكتروني">
+            <button id="searchBtn" class="btn-search">بحث</button>
+            <button id="clearBtn" class="btn-clear">إعادة تعيين</button>
+        </div>
+        
+        <div class="filter-section">
+            <label for="cityFilter">فلترة حسب المدينة:</label>
+            <select id="cityFilter">
+                <option value="">جميع المدن</option>
+                <option value="الرياض">الرياض</option>
+                <option value="جدة">جدة</option>
+                <option value="مكة">مكة</option>
+                <option value="الدمام">الدمام</option>
+                <option value="المدينة">المدينة المنورة</option>
+            </select>
+        </div>
+        
+        <div class="data-summary">
+            <p>عدد السجلات: <span id="recordCount">0</span></p>
+        </div>
+        
+        <div class="data-table-container">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>الاسم</th>
+                        <th>البريد الإلكتروني</th>
+                        <th>الهاتف</th>
+                        <th>المدينة</th>
+                        <th>الجنس</th>
+                        <th>التاريخ</th>
+                        <th>الإجراءات</th>
+                    </tr>
+                </thead>
+                <tbody id="dataBody">
+                    <!-- البيانات ستظهر هنا -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="back-section">
+            <a href="index.html" class="btn-back">العودة للإدخال</a>
+        </div>
+    </div>    
+    <script src="query.js"></script>
+    <script>
+        // التحقق من تسجيل الدخول
+        protectPage();
+        
+        // عرض معلومات المستخدم
+        document.getElementById('displayName').textContent = localStorage.getItem('userName') || 'مستخدم';
+        
+        // تسجيل الخروج
+        document.getElementById('logoutBtn').addEventListener('click', logout);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
