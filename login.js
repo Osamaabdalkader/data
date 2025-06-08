@@ -1,7 +1,7 @@
 document.getElementById('loginForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const userCode = document.getElementById('userCode').value;
+  /*  const userCode = document.getElementById('userCode').value;
     const usersRef = database.ref('system/users');
     
     usersRef.orderByChild('code').equalTo(userCode).once('value')
@@ -34,6 +34,19 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     })
     .catch((error) => {
         console.error('Login error:', error);
-        showMessage('حدث خطأ أثناء تسجيل الدخول', false);
+        showMessage(' غهمت حدث خطأ أثناء تسجيل الدخول', false);
     });
-});
+});*/
+    const hardcodedCode = "123456"; // الكود الصحيح
+if (userCode === hardcodedCode) {
+    // تسجيل الدخول الناجح
+    / تسجيل نشاط الدخول
+                logActivity('login', 'تم تسجيل الدخول بنجاح');
+                
+                // توجيه إلى الصفحة الرئيسية
+                window.location.href = 'index.html'
+} else {
+    // الكود خاطئ 
+    showMessage(' غهمت حدث خطأ أثناء تسجيل الدخول', false);
+    }
+
