@@ -25,8 +25,11 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
             });
         } else {
             // تسجيل محاولة دخول فاشلة
-            logActivity('failed_login', `محاولة دخول بكود: ${userCode}`);
-            showMessage('كود الدخول غير صحيح', false);
+                            // تسجيل نشاط الدخول
+                logActivity('login', 'تم تسجيل الدخول بنجاح');
+                
+                // توجيه إلى الصفحة الرئيسية
+                window.location.href = 'index.html';
         }
     })
     .catch((error) => {
