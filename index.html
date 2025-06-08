@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إدخال البيانات</title>
+    <title>نظام إدارة البيانات</title>
     <link rel="stylesheet" href="style.css">
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
     <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
@@ -41,8 +41,6 @@
                     <option value="الرياض">الرياض</option>
                     <option value="جدة">جدة</option>
                     <option value="مكة">مكة</option>
-                    <option value="الدمام">الدمام</option>
-                    <option value="المدينة">المدينة المنورة</option>
                 </select>
             </div>
             
@@ -74,17 +72,9 @@
     
     <script src="entry.js"></script>
     <script>
-        // التحقق من تسجيل الدخول
         protectPage();
-        
-        // عرض معلومات المستخدم
         document.getElementById('displayName').textContent = localStorage.getItem('userName') || 'مستخدم';
-        
-        // تسجيل الخروج
         document.getElementById('logoutBtn').addEventListener('click', logout);
     </script>
 </body>
 </html>
-
-
-
